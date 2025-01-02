@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight,
   Check,
   ChevronDown,
   Leaf,
@@ -11,8 +10,6 @@ import {
   Download,
   X,
   ExternalLink,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 import circuit from "./assets/circuit.png";
