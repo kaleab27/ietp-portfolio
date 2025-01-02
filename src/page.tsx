@@ -18,10 +18,10 @@ import proto2 from "./assets/proto2.jpeg";
 import photo1 from "./assets/photo1.jpeg";
 import photo2 from "./assets/photo2.jpeg";
 import photo3 from "./assets/photo3.jpeg";
-import proto3 from "./assets/proto3.png";
-import proto4 from "./assets/proto4.png";
-import final1 from "./assets/final1.png";
-import final2 from "./assets/final2.png";
+import proto3 from "./assets/proto3.jpg";
+import proto4 from "./assets/proto4.jpg";
+import final1 from "./assets/final1.jpg";
+import final2 from "./assets/final2.jpg";
 
 import TeamSection from "./teams";
 
