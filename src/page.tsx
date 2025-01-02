@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  ArrowRight,
   Check,
   ChevronDown,
   Leaf,
@@ -8,11 +9,27 @@ import {
   ChevronUp,
   Circle,
   Download,
+  X,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+
+import circuit from "./assets/circuit.png";
+import proto1 from "./assets/proto1.jpeg";
+import proto2 from "./assets/proto2.jpeg";
+import photo1 from "./assets/photo1.jpeg";
+import photo2 from "./assets/photo2.jpeg";
+import photo3 from "./assets/photo3.jpeg";
+import proto3 from "./assets/proto3.png";
+import proto4 from "./assets/proto4.png";
+import final1 from "./assets/final1.png";
+import final2 from "./assets/final2.png";
 
 import TeamSection from "./teams";
 
 export default function Page() {
+  const [selectedPhase, setSelectedPhase] = useState<number | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedPhases, setExpandedPhases] = useState<number[]>([0]);
 
@@ -25,6 +42,15 @@ export default function Page() {
   const handleDownload = () => {
     // In a real application, this would trigger the download of the paper
     alert("Downloading paper...");
+  };
+
+  const openDialog = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation();
+    setSelectedPhase(index);
+  };
+
+  const closeDialog = () => {
+    setSelectedPhase(null);
   };
 
   const timelineData = [
@@ -54,6 +80,26 @@ export default function Page() {
         },
       ],
       progress: 100,
+      notes: {
+        overview:
+          "Initial phase focused on team formation and project scope definition.",
+        keyActivities: [
+          "Team formation and role assignments across disciplines",
+          "Project scope introduction and alignment",
+          "Initial workshop visits and training sessions",
+        ],
+        teamContributions: [
+          "Software & Electrical: Designed Portfolio and Led discussions on sensor integration",
+          "Mechanical & Chemical: Explored hydroponic layer materials",
+          "Civil & Architecture: Focused on structural design feasibility",
+        ],
+        outcomes: [
+          "Aligned team objectives",
+          "Established interdisciplinary collaboration framework",
+          "Completed initial training requirements",
+        ],
+      },
+      images: [],
     },
     {
       week: "Week 2-3",
@@ -66,42 +112,106 @@ export default function Page() {
         },
         { text: "Group meet with Advisor (Oct 25)", completed: true },
         { text: "IETP Lecture 2: Design Process (Oct 28)", completed: true },
-        { text: "Project idea selection [Form B] (Nov 1)", completed: false },
-        { text: "Group meet with Advisor (Nov 1)", completed: false },
+        { text: "Project idea selection [Form B] (Nov 1)", completed: true },
+        { text: "Group meet with Advisor (Nov 1)", completed: true },
       ],
-      progress: 75,
+      progress: 100,
+      notes: {
+        overview:
+          "Planning phase established core system design and component allocation.",
+        systemDesign: [
+          "One temperature sensor and fan per hydroponic layer",
+          "One temperature and moisture sensor for soil farm",
+          "Two pumps: periodic (hydroponic) and moisture-triggered (soil farm)",
+        ],
+        teamContributions: [
+          "Electrical, ElectroMechanical & Mechanical: Developed pump and fan control logic",
+          "Civil & Architecture: Assessed sustainability and layout",
+          "Software: Initiated dashboard design for system control",
+          "Mining and Chemical: Did research on the nutrients to be used",
+          "Environmental: Did research on water container/reservoir components",
+        ],
+        outcomes: [
+          "Completed system architecture design",
+          "Established component requirements",
+          "Defined control logic framework",
+          "Outlined the required minerals to be used for specific plants",
+          "Defined the specif type and size of the reservoir to be used and its placement",
+        ],
+      },
+      images: [proto1, proto2],
     },
     {
       week: "Week 4-5",
-      title: "Project Development",
+      title: "Project Simulation and Development",
       date: "November 4-15, 2024",
       items: [
         {
           text: "IETP Lecture 3: Project Methodology (Nov 4)",
-          completed: false,
+          completed: true,
         },
-        { text: "Group meet with Advisor (Nov 8)", completed: false },
+        { text: "Group meet with Advisor (Nov 8)", completed: true },
         {
           text: "IETP Lecture 4: Fabrication Process and Lab Safety (Nov 11)",
-          completed: false,
+          completed: true,
         },
-        { text: "Submission of project proposal (Nov 15)", completed: false },
-        { text: "Group meet with Advisor (Nov 15)", completed: false },
+        { text: "Submission of project proposal (Nov 15)", completed: true },
+        { text: "Group meet with Advisor (Nov 15)", completed: true },
       ],
-      progress: 25,
+      progress: 100,
+      notes: {
+        overview:
+          "Development phase focused on Simulation and Individual System Development.",
+        keyActivities: [
+          "Simulated the Electrical and Electromechanical component of the system",
+          "Finished Dashboard Design",
+        ],
+        teamContributions: [
+          "Mechanical: Hardware assembly and integration",
+          "Software: Control logic and dashboard development",
+          "Architecture & Civil: Layout optimization and structural support",
+        ],
+        outcomes: [
+          "Functional monitoring system",
+          "Integrated hardware-software interface",
+          "Optimized maintenance layout",
+        ],
+      },
+      images: [circuit, proto3, proto4],
     },
     {
       week: "Week 6-10",
       title: "Implementation Phase",
       date: "November 22 - December 20, 2024",
       items: [
-        { text: "Group meet with Advisor (Nov 22)", completed: false },
-        { text: "BoM and procurement plan (Nov 29)", completed: false },
-        { text: "Group meet with Advisor (Nov 29)", completed: false },
-        { text: "Submission of progress report (Dec 6)", completed: false },
-        { text: "Group meet with Advisor (Dec 6, 13, 20)", completed: false },
+        { text: "Group meet with Advisor (Nov 22)", completed: true },
+        { text: "BoM and procurement plan (Nov 29)", completed: true },
+        { text: "Group meet with Advisor (Nov 29)", completed: true },
+        { text: "Submission of progress report (Dec 6)", completed: true },
+        { text: "Group meet with Advisor (Dec 6, 13, 20)", completed: true },
       ],
-      progress: 0,
+      progress: 100,
+      notes: {
+        overview: "Full system implementation and integration phase.",
+        implementation: [
+          "Hardware assembly and integration complete",
+          "Sensor and control system deployment",
+          "Real-time monitoring system activation",
+        ],
+        systemComponents: [
+          "Temperature sensors and fans in hydroponic layers",
+          "Temperature and moisture sensors in soil farm",
+          "Integrated pump control system",
+          "Real-time data pipeline",
+        ],
+        teamOutcomes: [
+          "Software: Completed data pipeline and control interface",
+          "Civil & Architecture: Optimized system layout",
+          "Environmental & Mining: Verified system adaptability",
+          "Chemical: Confirmed sensor functionality under controlled conditions",
+        ],
+      },
+      images: [photo1, photo2, photo3],
     },
     {
       week: "Week 11-15",
@@ -123,7 +233,28 @@ export default function Page() {
         { text: "Final report submission (Jan 3)", completed: false },
         { text: "Innovation Exhibition Day (Jan 15)", completed: false },
       ],
-      progress: 0,
+      progress: 25,
+      notes: {
+        overview:
+          "Final testing, calibration, and presentation preparation phase.",
+        technicalActivities: [
+          "Performance threshold optimization",
+          "Real-world condition testing",
+        ],
+        teamContributions: [
+          "Electrical & Chemical: Fine-tuned system thresholds",
+          "Software: Finalized monitoring dashboard",
+          "Mechanical & Environmental: Durability verification",
+          "Architecture & Civil: Presentation setup preparation",
+        ],
+        deliverables: [
+          "Prototype demonstration preparation",
+          "Documentation completion",
+          "Exhibition materials preparation",
+          "Final system optimization",
+        ],
+      },
+      images: [final1, final2],
     },
   ];
 
@@ -287,6 +418,15 @@ export default function Page() {
                         </motion.div>
                       )}
                     </AnimatePresence>
+                    <div className="flex items-center ml-6 pb-4">
+                      <button
+                        onClick={(e) => openDialog(e, index)}
+                        className="text-green-600 hover:text-green-700 font-medium flex items-center"
+                      >
+                        Progress Note
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </button>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -305,6 +445,67 @@ export default function Page() {
           </p>
         </div>
       </footer>
+      {selectedPhase !== null && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-screen-xl w-11/12 h-5/6 overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold text-gray-800">
+                  {timelineData[selectedPhase].title}
+                </h3>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeDialog();
+                  }}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+
+              <div className="space-y-6">
+                <p className="text-lg font-semibold text-gray-800">
+                  {timelineData[selectedPhase].notes.overview}
+                </p>
+
+                {Object.entries(timelineData[selectedPhase].notes).map(
+                  ([key, value]) => {
+                    if (key === "overview") return null;
+                    return (
+                      <div key={key} className="space-y-2">
+                        <h4 className="text-md font-semibold text-gray-700 capitalize">
+                          {key.replace(/([A-Z])/g, " $1").trim()}
+                        </h4>
+                        <ul className="list-disc pl-6 space-y-1">
+                          {Array.isArray(value) &&
+                            value.map((item, index) => (
+                              <li key={index} className="text-gray-600">
+                                {item}
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                    );
+                  }
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                {timelineData[selectedPhase].images.map((src, index) => (
+                  <div key={index}>
+                    <img
+                      src={src}
+                      alt={`Phase ${selectedPhase + 1} image ${index + 1}`}
+                      className="rounded-lg object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
