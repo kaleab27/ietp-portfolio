@@ -224,20 +224,20 @@ export default function Page() {
       items: [
         {
           text: "Evaluation of prototype fabrication (Dec 27)",
-          completed: false,
+          completed: true,
         },
-        { text: "Poster evaluation (Jan 1)", completed: false },
-        { text: "Prototype demonstration (Jan 1)", completed: false },
+        { text: "Poster evaluation (Jan 1)", completed: true },
+        { text: "Prototype demonstration (Jan 1)", completed: true },
         {
           text: "Group and individual oral presentation (Jan 1)",
-          completed: false,
+          completed: true,
         },
-        { text: "Peer evaluation (Jan 3)", completed: false },
-        { text: "e-portfolio evaluation (Jan 3)", completed: false },
-        { text: "Final report submission (Jan 3)", completed: false },
+        { text: "Peer evaluation (Jan 3)", completed: true },
+        { text: "e-portfolio evaluation (Jan 3)", completed: true },
+        { text: "Final report submission (Jan 3)", completed: true },
         { text: "Innovation Exhibition Day (Jan 15)", completed: false },
       ],
-      progress: 25,
+      progress: 90,
       notes: {
         overview:
           "Final testing, calibration, and presentation preparation phase.",
