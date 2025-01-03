@@ -23,6 +23,7 @@ import proto4 from "./assets/proto4.jpg";
 import final1 from "./assets/final1.jpg";
 import final2 from "./assets/final2.jpg";
 import photo6 from "./assets/photo6.jpeg";
+import mainPDF from "./assets/main.pdf";
 
 import TeamSection from "./teams";
 
@@ -38,8 +39,13 @@ export default function Page() {
   };
 
   const handleDownload = () => {
-    // In a real application, this would trigger the download of the paper
-    alert("Downloading paper...");
+    // Create an anchor element
+    const link = document.createElement("a");
+    link.href = mainPDF;
+    link.download = "AgriFusion-Project-Paper.pdf"; // Name that will be used for downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const openDialog = (e: React.MouseEvent, index: number) => {
