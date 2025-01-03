@@ -22,6 +22,7 @@ import proto3 from "./assets/proto3.jpg";
 import proto4 from "./assets/proto4.jpg";
 import final1 from "./assets/final1.jpg";
 import final2 from "./assets/final2.jpg";
+import photo6 from "./assets/photo6.jpeg";
 
 import TeamSection from "./teams";
 
@@ -251,7 +252,7 @@ export default function Page() {
           "Final system optimization",
         ],
       },
-      images: [final1, final2],
+      images: [final1, final2, photo6],
     },
   ];
 
