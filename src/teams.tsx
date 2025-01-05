@@ -75,10 +75,10 @@ export default function TeamSection() {
             </h3>
             <div className="space-y-2">
               <p className="text-lg font-semibold text-green-600">
-                Ethel Chirotaw
+                Ethel Cherotaw
               </p>
               <p className="text-gray-600">
-                Department: Electrical Engineering
+                Department: Electrical and Computer Engineering
               </p>
               <div className="flex items-center gap-6 mt-4 text-gray-600">
                 <div className="flex items-center">
@@ -91,7 +91,7 @@ export default function TeamSection() {
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-4 w-4 mr-2" />
-                  <span>ethel.chirotaw@aait.edu.et</span>
+                  <span>ethel.cherotaw@aastu.edu.et</span>
                 </div>
               </div>
             </div>
