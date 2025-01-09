@@ -83,7 +83,7 @@ export default function TeamSection() {
               <div className="flex items-center gap-6 mt-4 text-gray-600">
                 <div className="flex items-center">
                   <Phone className="h-4 w-4 mr-2" />
-                  <span>966001092</span>
+                  {/* <span>966001092</span> */}
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-2" />
